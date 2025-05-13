@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Happy Valentine's Day</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to top right, #ffafbd, #ffc3a0);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: #fff;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      h1 {
+        font-size: 3em;
+        margin-top: 100px;
+        animation: pop 1s ease-in-out forwards;
+      }
+
+      p {
+        font-size: 1.5em;
+        margin: 20px;
+        animation: fadeIn 2s ease-in-out;
+      }
+
+      .heart {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: red;
+        transform: rotate(45deg);
+        animation: float 6s infinite;
+      }
+
+      .heart::before,
+      .heart::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: red;
+        border-radius: 50%;
+      }
+
+      .heart::before {
+        top: -10px;
+        left: 0;
+      }
+
+      .heart::after {
+        left: -10px;
+        top: 0;
+      }
+
+      @keyframes float {
+        0% {
+          bottom: 0;
+          opacity: 1;
+          left: calc(50% - 10px);
+        }
+        100% {
+          bottom: 100%;
+          opacity: 0;
+          left: calc(50% + 100px * (random() - 0.5));
+        }
+      }
+
+      @keyframes pop {
+        0% {
+          transform: scale(0);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      footer {
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Happy Valentine's Day! 💘</h1>
+    <p>Wishing you love, happiness, and sweet moments today and always.</p>
+
+    <!-- Create multiple hearts -->
+    <script>
+      for (let i = 0; i < 20; i++) {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.animationDuration = 3 + Math.random() * 3 + "s";
+        document.body.appendChild(heart);
+      }
+    </script>
+
+    <footer>Made with ❤️ by Pengly</footer>
+  </body>
+</html>
